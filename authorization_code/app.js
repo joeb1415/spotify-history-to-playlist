@@ -13,9 +13,10 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = 'CLIENT_ID'; // Your client id
-var client_secret = 'CLIENT_SECRET'; // Your secret
-var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
+var client_id = '1fd1295e25e841f39b73d0fab94962bb'; // Your client id
+var client_secret = 'b1f1cd3dcf9d4992bd022e0029250b96'; // Your secret
+// var redirect_uri = 'https://joeb1415-ubiquitous-journey-qp7wvqqj5p2g6p-8888.preview.app.github.dev/'
+var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -46,7 +47,7 @@ app.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // your application requests authorization
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-read-private user-read-email user-read-recently-played';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
